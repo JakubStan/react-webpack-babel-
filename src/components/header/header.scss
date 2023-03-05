@@ -1,0 +1,288 @@
+@import "./../../style/index.scss";
+
+.header {
+  position: fixed;
+  width: 100vw;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  display: inline-table;
+}
+
+  .header-content{
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    padding: 0px 20px;
+
+
+
+    .logo{
+      width: 230px;
+   
+      
+      @include for-Extra-Small-devices {
+        width: 45px;
+        padding: 10px;
+      }
+
+      @include for-Small-devices {
+        padding:0px;
+        width: 50px;  
+       }
+    }
+  }
+
+  .header-menu{
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 53px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    
+    @include for-Extra-Small-devices {
+      display: table;
+     }
+    
+    @include for-Small-devices  {
+      display: flex;
+      align-items: center;
+     }
+
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    margin-right: 200px;
+
+    @include for-Extra-Small-devices {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+     }
+   
+  }
+
+  li{
+    
+
+  a {
+    display: block;
+    padding: 20px 20px;    
+    text-decoration: none;
+    color: $light;
+    position: relative;
+    font-size: 20px;
+    cursor: pointer;
+    
+
+    @include for-Extra-Small-devices {
+      padding: 5px 10px;
+      font-size: 20px;   
+      text-align: center;
+     }
+
+     @include for-Small-devices  {
+      font-size: 22px;
+      padding: 20px 7px;  
+     }
+
+     @include for-Medium-devices {
+      font-size: 25px;
+      }
+
+ 
+  
+  }
+}
+
+
+
+
+.menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .nav{
+      display: flex;
+      width: 100%;
+      position: relative;
+    }
+
+    .nav-left{
+      justify-content: end;
+      &::after{
+        position: absolute;
+        bottom: -1.5rem;
+        content: "";
+        left: 0;
+        width: 100%;
+        background: linear-gradient(-90deg,#f8f3e9,transparent);
+        height: 1px;
+        opacity: .3;
+        -webkit-clip-path: inset(0 0 0 0);
+        clip-path: inset(0 0 0 0);
+        transition-property: opacity,-webkit-clip-path;
+        transition-property: opacity,clip-path;
+        transition-property: opacity,clip-path,-webkit-clip-path;
+        transition-duration: 1.2s;
+        transition-timing-function: cubic-bezier(.77,0,.175,1);
+        transition-delay: .7s;
+      }
+    }
+
+
+    .nav-right{
+      justify-content: start;
+      &::after{
+        position: absolute;
+        bottom: -1.5rem;
+        content: "";
+        left: 0;
+        width: 100%;
+        background: linear-gradient(90deg,#f8f3e9,transparent);
+        height: 1px;
+        opacity: .3;
+        -webkit-clip-path: inset(0 0 0 0);
+        clip-path: inset(0 0 0 0);
+        transition-property: opacity,-webkit-clip-path;
+        transition-property: opacity,clip-path;
+        transition-property: opacity,clip-path,-webkit-clip-path;
+        transition-duration: 1.2s;
+        transition-timing-function: cubic-bezier(.77,0,.175,1);
+        transition-delay: .7s;
+      }
+    }
+
+ 
+    @include for-Extra-Small-devices {
+      margin-bottom: 10px;
+    }
+
+    @include for-Small-devices  {
+      margin-bottom: 0px;
+    }
+
+    @media (min-width: $Md) {
+      max-height: none;
+      display: flex;
+    }
+        
+}
+
+
+
+
+  .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 40px 20px;
+    position: relative;
+    user-select: none;    
+
+    @include for-Extra-Small-devices {
+      padding: 25px 20px;
+    }
+
+    .navicon {
+      background: white;
+      display: block;
+      height: 2px;
+      position: relative;
+      transition: background .2s ease-out;
+      width: 18px;
+
+      &:before, &:after {
+        background: white;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all .2s ease-out;
+        width: 100%;
+      }
+
+      &:before {
+        top: 5px;
+      }
+
+      &:after {
+        top: -5px;
+      }
+    }
+    @media (min-width: $Md) {
+      display: none;
+    }
+  }
+
+  .menu-btn {
+    display: none;
+
+    &:checked ~ {
+      .menu {
+        max-height: 240px;
+      }
+
+      .menu-icon {
+       
+
+        .navicon {
+          background: transparent;
+
+          &:before {
+            transform: rotate(-45deg);
+          }
+
+          &:after {
+            transform: rotate(45deg);
+          }
+        }
+
+        &:not(.steps) .navicon {
+          &:before, &:after {
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+
+
+
+  @include for-Small-devices  {
+  .header {
+    li {
+      float: left;
+    }
+
+    .menu {
+      clear: none;     
+      max-height: none;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .menu-icon {
+      display: none;
+    }
+  }
+}

@@ -1,9 +1,13 @@
 import React from "react";
+import { Footer, Header, Hero, Wine } from "./components";
 
 const App = () => {
   return (
     <>
-      <h1>Siema!</h1>
+      <Header />
+      <Hero />
+      <Wine />
+      <Footer />
     </>
   );
 };

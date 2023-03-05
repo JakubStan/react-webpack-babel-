@@ -8,16 +8,14 @@ module.exports = {
     filename: "bundle.[fullhash].js",
     path: path.resolve(__dirname, "dist"),
   },
-
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
   ],
-
   resolve: {
     modules: [__dirname, "src", "node_modules"],
-    extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
+    extensions: ["*", ".js", ".jsx", "tsx", ".ts"],
   },
   module: {
     rules: [
@@ -27,14 +25,13 @@ module.exports = {
         use: ["babel-loader"],
       },
       {
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
         exclude: /node_modules/,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        exclude: /node_modules/,
-        use: ["file-loader"],
+        test: /\.(png|svg|jpg|gif|pdf)$/,
+        type: "asset/resource",
       },
     ],
   },

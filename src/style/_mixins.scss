@@ -1,0 +1,34 @@
+@import "variables";
+
+@mixin for-Extra-Small-devices {
+  @media (max-width: $Sm) {
+    @content;
+  }
+}
+@mixin for-Small-devices {
+  @media (min-width: $Sm) and (max-width: $Md) {
+    @content;
+  }
+}
+@mixin for-Medium-devices {
+  @media (min-width: $Md) and (max-width: $Lg) {
+    @content;
+  }
+}
+@mixin for-Large-devices {
+  @media (min-width: $Lg) and (max-width: $Xl) {
+    @content;
+  }
+}
+
+@mixin for-Extra-Large-devices {
+  @media (min-width: $Xl) and (max-width: $Xxl) {
+    @content;
+  }
+}
+
+@mixin for-ExtraExtraLarge-devices {
+  @media (min-width: $Xxl)  {
+    @content;
+  }
+}

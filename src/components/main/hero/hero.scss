@@ -1,0 +1,166 @@
+@import "../../../style/index.scss";
+
+#hero{
+    
+    .hero-bg{        
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        background-image: url(../../../assets/hero-bg.jpg);
+        background-attachment: fixed;
+        z-index: 0;
+        
+        &::before{
+            position:absolute;
+            content: '';
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.43);
+            z-index: 1;
+        }
+
+        &::after{
+            position: absolute;
+            content: '';           
+            -webkit-mask-image: url("../../../assets/mask.svg");
+            mask-image:url("../../../assets/mask.svg");                   
+            bottom: 0;
+            top: 1px;
+            width: 100%;
+            min-width: 1000px;
+            height: 100%;
+            transform: translateX(-50%);
+            background-image: url('../../../assets/light-background-s1.jpg');
+            pointer-events: none;        
+            left: 50%;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-position: bottom center;
+            mask-position: bottom center;
+            z-index: 2;
+        }
+
+        .hero-content{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $light;            
+            z-index: 3;
+            flex-direction: column;
+            
+           .hero-date{
+            position: relative;
+            width: 100%;
+            text-align: center;
+            font-size: 30px;
+                &::before{
+                    position: absolute;
+                    margin-right: -0.0625rem;
+                    background: linear-gradient(-90deg, currentColor, transparent);
+                    content: "";
+                    display: inline-block;
+                    flex: 1;
+                    height: 0.0625rem;
+                    background: linear-gradient(90deg, currentColor, transparent);
+                    width: 30%;
+                    right: 250px;
+                    top: 50%;
+                }
+
+                &::after{
+                    position: absolute;                 
+                    background: linear-gradient(-90deg,currentColor,transparent);
+                    content: "";
+                    display: inline-block;
+                    flex: 1;
+                    height: 0.0625rem;             
+                    width: 30%;
+                    left: 250px;
+                    top: 50%;
+                }
+
+                h2{
+                    &::after{
+                        content: "";
+                        display: inline-block;
+                        width: 1.75rem;
+                        height: 1.75rem;
+                        background-color: currentColor;
+                        vertical-align: middle;   
+                        -webkit-mask-image: url(../../../assets/arrow-right.png);
+                        mask-image: url(../../../assets/arrow-right.png);
+                        -webkit-mask-repeat: no-repeat;
+                        mask-repeat: no-repeat;
+                        -webkit-mask-size: contain;
+                        mask-size: contain;
+                        -webkit-mask-position: center;
+                        mask-position: center;
+                        position: absolute;
+                        top: 30%;
+                        right: 825px;
+                    }
+
+                    &::before{
+                        content: "";
+                        display: inline-block;
+                        width: 1.75rem;
+                        height: 1.75rem;
+                        background-color: currentColor;
+                        vertical-align: middle;
+                        -webkit-mask-image: url(../../../assets/arrow-left.png);
+                        mask-image: url(../../../assets/arrow-left.png);                  
+                        -webkit-mask-repeat: no-repeat;
+                        mask-repeat: no-repeat;
+                        -webkit-mask-size: contain;
+                        mask-size: contain;
+                        -webkit-mask-position: center;
+                        mask-position: center;
+                        position: absolute;
+                        top: 30%;
+                        left: 825px;
+                    }
+                }
+            }
+
+           
+        }
+    }
+
+    .navigation{
+        position: absolute;      
+        margin-left: 0;
+        margin-right: 0;
+        bottom: 30px;
+
+        .arrow{
+            background-color: $green-dark;
+            border-radius: 100%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &::after{
+                position: absolute;
+                content: '';
+                border: 1px solid $light;
+                border-radius: 100%;
+                width: 90%;
+                height: 90%;
+            }
+
+            img{
+                height: 60px;
+                width: auto;
+            }
+        }
+    }
+}
